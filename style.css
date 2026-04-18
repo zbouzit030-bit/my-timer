@@ -1,0 +1,189 @@
+/* 1. إعدادات الصفحة الأساسية */
+body {
+body {
+    /* رابط الصورة - يمكنك وضع رابط صورتك الخاصة هنا */
+    background-image: url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1920&q=80');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Segoe UI', sans-serif;
+    overflow: hidden; /* لمنع التمرير */
+}
+
+/* طبقة تعتيم فوق الصورة لتظهر الساعة بوضوح */
+.background-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* تعتيم بنسبة 50% */
+    z-index: -1; /* لجعلها خلف المحتوى */
+}
+
+/* تعديل الحاوية لتصبح شفافة وأنيقة (Glassmorphism) */
+.container {
+    text-align: center;
+    width: 90%;
+    max-width: 850px;
+    padding: 50px 20px;
+    background: rgba(255, 255, 255, 0.1); /* خلفية شفافة */
+    backdrop-filter: blur(15px); /* تأثير الضباب على الخلفية */
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+    z-index: 1;
+}
+
+/* جعل الأرقام بيضاء ناصعة لتبرز فوق الخلفية */
+.display {
+    font-size: 9rem;
+    color: #ffffff;
+    text-shadow: 2px 2px 15px rgba(0, 0, 0, 0.5);
+}
+    background-color: #121212; /* خلفية داكنة جداً مثل VClock */
+    color: #f0f0f0; /* لون نص أبيض مائل للرمادي لتريح العين */
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; /* خطوط عصرية ونظيفة */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* ملء كامل ارتفاع الشاشة */
+    direction: rtl; /* لدعم اللغة العربية */
+}
+
+/* 2. الحاوية الرئيسية */
+.container {
+    text-align: center;
+    width: 90%;
+    max-width: 800px;
+    padding: 20px;
+    background-color: #1e1e1e; /* خلفية أفتح قليلاً للحاوية */
+    border-radius: 15px; /* حواف ناعمة */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5); /* ظل لإعطاء عمق */
+}
+
+/* 3. تصميم القائمة العلوية (Tab Navigation) */
+nav {
+    margin-bottom: 40px;
+    border-bottom: 1px solid #333;
+    padding-bottom: 15px;
+}
+
+nav button {
+    background: none;
+    border: 2px solid transparent;
+    color: #aaa;
+    padding: 10px 25px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    margin: 0 5px;
+    border-radius: 25px;
+    transition: all 0.3s ease; /* تأثير ناعم عند التحويم */
+}
+
+nav button:hover {
+    color: white;
+    background-color: #333;
+}
+
+nav button.active {
+    color: #fff;
+    background-color: #2196F3; /* لون أزرق مميز مثل المواقع الاحترافية */
+    border-color: #2196F3;
+}
+
+/* 4. تصميم عرض الساعة (الجزء الأهم) */
+.display {
+    font-size: 8rem; /* حجم ضخم جداً للأرقام */
+    font-weight: 700;
+    letter-spacing: -2px; /* تقريب الأرقام قليلاً */
+    color: #fff;
+    margin: 20px 0;
+    font-family: 'Courier New', Courier, monospace; /* خط يشبه الساعات الرقمية، أو اتركها كما هي */
+    text-shadow: 0 0 20px rgba(255,255,255,0.2); /* وهج بسيط حول الأرقام */
+}
+
+/* للأجهزة المحمولة: تصغير حجم الساعة */
+@media (max-width: 600px) {
+    .display {
+        font-size: 4rem;
+    }
+}
+
+#date-display {
+    font-size: 1.5rem;
+    color: #888;
+    margin-top: -15px;
+    margin-bottom: 30px;
+}
+
+/* 5. تصميم قسم المنبه وأدوات الإدخال */
+#alarm-section input[type="time"] {
+    background-color: #2a2a2a;
+    border: 2px solid #444;
+    color: #fff;
+    font-size: 2rem;
+    padding: 10px 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    outline: none;
+}
+
+#alarm-section input[type="time"]::-webkit-calendar-picker-indicator {
+    filter: invert(1); /* جعل أيقونة التحديد بيضاء */
+}
+
+#alarm-section button {
+    background-color: #4CAF50; /* لون أخضر للضبط */
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#alarm-section button:hover {
+    background-color: #45a049;
+}
+
+#alarm-status {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    color: #ffc107; /* لون ذهبي للحالة */
+}
+@keyframes pulse-red {
+    0% { background-color: rgba(255, 0, 0, 0); }
+    50% { background-color: rgba(255, 0, 0, 0.4); }
+    100% { background-color: rgba(255, 0, 0, 0); }
+}
+
+.alarm-active {
+    animation: pulse-red 1s infinite;
+}
+.timer-inputs input {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    padding: 10px;
+    width: 80px;
+    font-size: 1.5rem;
+    border-radius: 10px;
+    text-align: center;
+    margin: 5px;
+}
+
+#start-btn {
+    background-color: #2196F3;
+    margin-top: 20px;
+}
