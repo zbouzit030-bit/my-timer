@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>ساعتي - نسخة VClock</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body><div class="background-overlay"></div>
+    <div class="container">
+<nav>
+    <button id="btn-clock" class="active" onclick="showSection('clock')">الساعة</button>
+    <button id="btn-alarm" onclick="showSection('alarm')">المنبه</button>
+    <button id="btn-timer" onclick="showSection('timer')">المؤقت</button>
+</nav>
+
+<section id="timer-section" style="display:none;">
+    <div id="timer-display" class="display">00:00:00</div>
+    <div class="timer-inputs">
+        <input type="number" id="timer-min" placeholder="الدقائق" min="0" max="59">
+        <input type="number" id="timer-sec" placeholder="الثواني" min="0" max="59">
+    </div>
+    <br>
+    <button onclick="startTimer()" id="start-btn">ابدأ</button>
+    <button onclick="resetTimer()" style="background-color: #f44336;">إعادة ضبط</button>
+</section>
+        <nav>
+            <button onclick="showSection('clock')">الساعة</button>
+            <button onclick="showSection('alarm')">المنبه</button>
+        </nav>
+
+        <section id="clock-section">
+            <div id="digital-clock" class="display">00:00:00</div>
+            <div id="date-display"></div>
+        </section>
+
+        <section id="alarm-section" style="display:none;">
+            <input type="time" id="alarm-time">
+            <button onclick="setAlarm()">ضبط المنبه</button>
+            <div id="alarm-status"></div>
+        </section>
+    </div>
+
+    <audio id="alarm-sound" src="https://www.soundjay.com/buttons/beep-01a.mp3" preload="auto"></audio>
+
+    <script src="script.js"></script>
+<button id="bg-changer" onclick="changeBackground()" style="position: fixed; bottom: 20px; right: 20px; z-index: 100; background: rgba(0,0,0,0.5); color: white; border: 1px solid white; padding: 10px; border-radius: 50%; cursor: pointer;">🖼️</button>
+</body>
+</html>
